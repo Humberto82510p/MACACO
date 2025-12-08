@@ -9,6 +9,7 @@ enum estadodejuego
     JUGANDO,
     PELOTAPARA,
     GANAR,
+    PREGUNTA,
     PIERDES
 };
 estadodejuego estado_j = MENU;

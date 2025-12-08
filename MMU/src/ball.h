@@ -12,6 +12,7 @@ public:
     float radius;
     void Draw() const;
     void Update(float dt, Rectangle playArea);
+    void velocidadpuntos (float mul);;
 
 
     void MUEVETE();

@@ -1,29 +1,25 @@
 #include "ball.h"
 #include <raylib.h>
+#include <cmath>
 
 Ball::Ball()
-    : x(50), y(50), speedX(400), speedY(400), radius(35)
+    : x(50), y(50), speedX(1200), speedY(1200), radius(35)
 {
 }
 
-void Ball :: PARARSE()
+void Ball ::PARARSE()
 {
     speedX = 0;
     speedY = 0;
-    separo = 1; 
-
+    separo = 1;
 }
 
-void Ball :: MUEVETE()
+void Ball ::MUEVETE()
 {
-    speedX = 200;
-    speedY = 200;
-    radius = 30;
-
+    speedX = 1200;
+    speedY = 1200;
+    radius = 35;
 }
-
-
-
 
 void Ball::Update(float dt, Rectangle playArea)
 {
@@ -51,7 +47,7 @@ void Ball::Update(float dt, Rectangle playArea)
     if (y - radius <= top)
     {
         y = top + radius;
-        speedY *= -1;\
+        speedY *= -1;
     }
 
     if (y + radius >= bottom)
@@ -59,15 +55,24 @@ void Ball::Update(float dt, Rectangle playArea)
         y = bottom - radius;
         speedY *= -1;
     }
-
-    
-
-   
 }
 
-
-
-void Ball::Draw() const
+void Ball::velocidadpuntos(float mul)
 {
-    DrawCircle(x, y, radius, WHITE);
+    speedX *= mul;
+    speedY *= mul;
+
+    const float VEL_MAX = 5000.0f; // límite superior
+
+    // Solo limitar por arriba, nunca por abajo
+    if (fabs(speedX) > VEL_MAX) 
+        speedX = (speedX > 0 ? VEL_MAX : -VEL_MAX);
+    if (fabs(speedY) > VEL_MAX)
+        speedY = (speedY > 0 ? VEL_MAX : -VEL_MAX);
+
 }
+
+    void Ball::Draw() const
+    {
+        DrawCircle(x, y, radius, WHITE);
+    }
