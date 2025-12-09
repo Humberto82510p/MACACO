@@ -366,7 +366,7 @@ int main()
                 }
             }
 
-            // --- DIBUJO DE PREGUNTA MEJORADO ---
+            // --- DIBUJO DE PREGUNTA ---
             BeginDrawing();
             ClearBackground(BLACK);
             DrawTexture(tablero, 0, 0, WHITE);
@@ -380,8 +380,8 @@ int main()
             DrawRectangleRoundedLinesEx(panelRect, 0.05f, 10, 5, WHITE);
 
             // 3. Título
-            DrawTextEx(titulos, "CUANTOS PUNTOS??", {screenWidth / 2.0f - 200, 50}, 40, 2, GOLD);
-            DrawText("Suma los puntos de las canicas obtenidas:", screenWidth / 2 - 220, 0, 25, LIGHTGRAY);
+            DrawTextEx(titulos, "CUANTOS PUNTOS??", {screenWidth / 2.0f - 320, 50}, 60, 10, GOLD);
+            DrawText("Suma los puntos de las canicas obtenidas:", screenWidth / 2 - 250, 120, 25, LIGHTGRAY);
             
 
             // 4. Tabla de Recuento (DIVIDIDA EN COLUMNAS)
